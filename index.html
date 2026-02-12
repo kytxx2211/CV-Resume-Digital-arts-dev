@@ -4,147 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CATNAP STUDIO</title>
+<title>CATNAP STUDIO | Portfolio</title>
 
 <style>
 
-/* ================= RESET ================= */
-
+/* ===== RESET ===== */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI,Arial;
+font-family:'Segoe UI',sans-serif;
 }
 
-/* ================= BODY ================= */
-
+/* ===== BODY ===== */
 body{
 background:black;
 color:white;
 overflow:hidden;
+transition:0.5s;
 }
 
-/* ================= CYBER BACKGROUND ================= */
-
-.cyber-bg{
+/* ===== CYBER GIRL BACKGROUND ===== */
+.bg{
 position:fixed;
 inset:0;
 background:
-linear-gradient(135deg,#020617,#000),
-repeating-linear-gradient(
-0deg,
-rgba(0,255,255,.05),
-rgba(0,255,255,.05) 1px,
-transparent 1px,
-transparent 3px
-);
+radial-gradient(circle at top,#ff00cc22,transparent 40%),
+radial-gradient(circle at bottom,#00ffff22,transparent 40%),
+linear-gradient(135deg,#020617,#000);
 z-index:-1;
 }
 
-/* ================= LOADING ================= */
-
+/* ===== LOADING ===== */
 #loading{
 position:fixed;
 inset:0;
-background:black;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-z-index:999;
+text-align:center;
 transition:.6s;
 }
 
-/* Video */
-#introVideo{
-width:100%;
-height:100%;
-object-fit:cover;
-position:absolute;
-inset:0;
-opacity:.35;
-}
-
-/* Overlay */
-#overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.6);
-}
-
-/* Title */
-#title{
+.title{
 font-size:42px;
-color:cyan;
-text-shadow:0 0 25px cyan;
-margin-bottom:15px;
+color:#ff66ff;
+text-shadow:0 0 20px #ff66ff;
 position:relative;
+margin-bottom:10px;
 }
 
-/* Glitch */
-.glitch::before,
-.glitch::after{
+/* GLITCH CUTE */
+.title::before,
+.title::after{
 content:attr(data-text);
 position:absolute;
 left:0;
 top:0;
-width:100%;
 }
 
-.glitch::before{
-color:red;
+.title::before{
+color:#00ffff;
 animation:gl1 2s infinite;
 }
 
-.glitch::after{
-color:blue;
+.title::after{
+color:#ff00aa;
 animation:gl2 1.5s infinite;
 }
 
 @keyframes gl1{
 0%{clip:rect(0,999px,0,0)}
-50%{clip:rect(10px,999px,50px,0)}
+50%{clip:rect(10px,999px,40px,0)}
 100%{clip:rect(0,999px,0,0)}
 }
 
 @keyframes gl2{
 0%{clip:rect(0,999px,0,0)}
-50%{clip:rect(30px,999px,70px,0)}
+50%{clip:rect(20px,999px,60px,0)}
 100%{clip:rect(0,999px,0,0)}
 }
 
-/* Button */
+/* ENTER BUTTON */
 #enterBtn{
-display:none;
-padding:14px 28px;
-background:cyan;
+margin-top:20px;
+padding:14px 30px;
 border:none;
-border-radius:8px;
-font-size:16px;
+border-radius:30px;
+background:linear-gradient(45deg,#ff66ff,#00ffff);
+color:black;
 font-weight:bold;
 cursor:pointer;
-box-shadow:0 0 20px cyan;
-transition:.2s;
+font-size:16px;
+box-shadow:0 0 20px #ff66ff;
+transition:.3s;
 }
 
 #enterBtn:hover{
 transform:scale(1.1);
+box-shadow:0 0 30px #00ffff;
 }
 
-/* ================= MAIN ================= */
-
+/* ===== MAIN ===== */
 #main{
 display:none;
-min-height:100vh;
 padding:40px 20px;
 text-align:center;
 animation:fadeIn 1s;
-}
-
-#main h1{
-color:cyan;
-text-shadow:0 0 20px cyan;
 }
 
 @keyframes fadeIn{
@@ -152,28 +119,36 @@ from{opacity:0;transform:translateY(40px)}
 to{opacity:1}
 }
 
-/* ================= CARD ================= */
-
 .card{
-max-width:600px;
-margin:40px auto;
+max-width:650px;
+margin:30px auto;
+background:#0f172a;
 padding:25px;
-background:#020617;
-border-radius:15px;
-box-shadow:0 0 25px cyan;
+border-radius:20px;
+box-shadow:0 0 25px #ff66ff55;
+transition:.3s;
 }
 
-/* ================= BUTTON ================= */
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 35px #00ffff88;
+}
 
 .btn{
 display:inline-block;
-margin:10px;
+margin-top:15px;
 padding:10px 20px;
-background:cyan;
+border-radius:20px;
+background:linear-gradient(45deg,#ff66ff,#00ffff);
 color:black;
-border-radius:6px;
 text-decoration:none;
 font-weight:bold;
+}
+
+footer{
+margin-top:40px;
+opacity:.6;
+font-size:13px;
 }
 
 </style>
@@ -181,118 +156,114 @@ font-weight:bold;
 
 <body>
 
-<div class="cyber-bg"></div>
+<div class="bg"></div>
 
-<!-- ================= LOADING ================= -->
-
+<!-- ===== LOADING ===== -->
 <div id="loading">
-
-<video id="introVideo" autoplay muted loop>
-<source src="intro.mp4" type="video/mp4">
-</video>
-
-<div id="overlay"></div>
-
-<h1 id="title" class="glitch" data-text="CATNAP STUDIO">
+<h1 class="title" data-text="CATNAP STUDIO">
 CATNAP STUDIO
 </h1>
-
-<p>Initializing System...</p>
-
-<br>
+<p>Initializing Cute System...</p>
 
 <button id="enterBtn" onclick="enterSite()">
-ENTER PORTFOLIO
+💖 ENTER PORTFOLIO
 </button>
-
 </div>
 
-<!-- ================= MAIN ================= -->
-
+<!-- ===== MAIN ===== -->
 <div id="main">
 
-<h1>Welcome</h1>
-
-<p>กัญญาทิพย์ กันตะกนิษฐ์</p>
-<p>Media Arts & Design | CMU</p>
-
-<div class="card">
-
-<h2>About Me</h2>
+<h1 style="color:#ff66ff;text-shadow:0 0 15px #ff66ff;">
+สวัสดีค่ะ 💕
+</h1>
 
 <p>
-Graphic / Poster / Collage / Media Design  
-พร้อมทำงานจริงในสายครีเอทีฟ
+กัญญาทิพย์ กันตะกนิษฐ์  
+<br>
+Media Arts & Design | CMU
+</p>
+
+<div class="card">
+<h2>✨ About Me</h2>
+<p>
+นักออกแบบสาย Creative  
+ชอบ Poster, Collage และ Visual Storytelling  
+พร้อมเรียนรู้และทำงานจริงค่ะ 💗
 </p>
 
 <a href="resume.pdf" download class="btn">
 📄 Download Resume
 </a>
-
 </div>
 
 <div class="card">
-
-<h2>My Works</h2>
-
-<p>✨ แสดงผลงานจาก Firebase ได้ตรงนี้</p>
-
+<h2>🌸 My Works</h2>
+<p>ผลงานสามารถใส่ Gallery หรือ Firebase เพิ่มได้ตรงนี้</p>
 </div>
 
+<footer>
+© 2026 CATNAP STUDIO
+</footer>
+
 </div>
-
-<!-- ================= AUDIO ================= -->
-
-<audio id="clickSound" src="click.mp3"></audio>
-
-<!-- ================= SCRIPT ================= -->
 
 <script>
 
-/* ================= COOKIE ================= */
+/* ===== SOUND SYSTEM (ฝังในโค้ด) ===== */
+function playSound(freq,duration){
 
-// ถ้าเคยเข้าแล้ว ข้าม intro
-if(localStorage.getItem("entered")){
+const ctx=new (window.AudioContext||window.webkitAudioContext)();
+const osc=ctx.createOscillator();
+const gain=ctx.createGain();
 
-document.getElementById("loading").style.display="none";
-document.getElementById("main").style.display="block";
-document.body.style.overflow="auto";
+osc.connect(gain);
+gain.connect(ctx.destination);
+
+osc.type="sine";
+osc.frequency.value=freq;
+
+gain.gain.setValueAtTime(0.2,ctx.currentTime);
+
+osc.start();
+osc.stop(ctx.currentTime+duration);
 
 }
 
-/* ================= BUTTON ================= */
+/* ===== COOKIE CHECK ===== */
+window.onload=function(){
 
-setTimeout(()=>{
-
-if(!localStorage.getItem("entered")){
-document.getElementById("enterBtn").style.display="block";
+if(localStorage.getItem("entered")==="yes"){
+showMain();
 }
 
-},4000);
+};
 
-/* ================= ENTER ================= */
-
+/* ===== ENTER ===== */
 function enterSite(){
 
-// เล่นเสียง
-document.getElementById("clickSound").play();
+playSound(600,0.2); // click sound
+setTimeout(()=>playSound(900,0.2),100); // cute sparkle
 
-// บันทึก cookie
 localStorage.setItem("entered","yes");
 
-// Fade out
-document.getElementById("loading").style.opacity="0";
+const load=document.getElementById("loading");
+load.style.opacity="0";
 
 setTimeout(()=>{
+showMain();
+},500);
+
+}
+
+/* ===== SHOW MAIN ===== */
+function showMain(){
 
 document.getElementById("loading").style.display="none";
 document.getElementById("main").style.display="block";
 document.body.style.overflow="auto";
 
-},600);
-
 }
-  
+
 </script>
 
 </body>
